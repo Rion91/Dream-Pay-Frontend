@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <Navbar />
     <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -29,4 +27,31 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+footer {
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0 !important;
+}
+
+.footerEachDiv {
+  text-align: center;
+  padding: 0px 11px;
+  color: #000;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>
+<script>
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+export default {
+  components: { Footer, Navbar },
+};
+</script>
