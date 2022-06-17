@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <h2>Test 2</h2>
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: "TestView.vue",
+  name: "PincodeView",
 };
 </script>
 

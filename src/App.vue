@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <Navbar />
+    <div v-if="currentRouteName !== 'login' && currentRouteName !== 'register'">
+      <Navbar />
+    </div>
     <router-view />
-    <Footer />
+    <div v-if="currentRouteName !== 'login' && currentRouteName !== 'register'">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -51,7 +55,13 @@ footer a {
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 export default {
   components: { Footer, Navbar },
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
+    },
+  },
 };
 </script>

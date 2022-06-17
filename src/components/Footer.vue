@@ -20,7 +20,7 @@
             </a>
             <a href="#">
               <font-awesome-icon icon="fas fa-home" />
-              <p>Home</p>
+              <p>Profile</p>
             </a>
           </div>
         </div>
