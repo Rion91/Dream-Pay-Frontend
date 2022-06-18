@@ -10,28 +10,39 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
             <div class="card login">
-              <h1>Sign In</h1>
+              <h1>Login</h1>
               <form class="form-group">
                 <input
+                  v-model="credentials.email"
                   type="email"
                   class="form-control"
                   placeholder="Email"
                   required
                 />
                 <input
+                  v-model="credentials.password"
                   type="password"
                   class="form-control"
                   placeholder="Password"
                   required
                 />
-                <input type="submit" class="btn btn-primary" />
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block"
+                  @click.prevent="login"
+                >
+                  Login
+                </button>
                 <p>
                   Don't have an account?
-                  <a href="#">Sign up here</a>
+                  <a>Sign up here</a>
                 </p>
                 <p><a href="#">Forgot your password?</a></p>
               </form>
             </div>
+            <span v-for="error in errors" :key="error" style="display: block">{{
+              error
+            }}</span>
           </div>
         </div>
       </div>
@@ -39,9 +50,21 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {};
+  },
+  computed: {
+    credentials() {
+      return this.$store.state.Login.credentials;
+    },
+    errors() {
+      return this.$store.state.Login.errors;
+    },
+  },
+  methods: {
+    ...mapActions(["login"]),
   },
 };
 </script>
