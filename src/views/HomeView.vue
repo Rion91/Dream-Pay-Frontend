@@ -29,9 +29,9 @@
           style="margin: 10px; height: 50px; border-radius: 10px"
         >
           <div class="card-body">
-            <span>
+            <span class="qrcode">
               <font-awesome-icon :icon="['fas', 'qrcode']" />
-              QR CODE
+              <router-link :to="{ name: 'qrcode'}" class="text-uppercase qrcode"> qr code</router-link>
             </span>
           </div>
         </div>
@@ -45,7 +45,7 @@
           <div class="card-body">
             <span class="trext-uppercase fs-6 fw-normal text-black">
               <font-awesome-icon :icon="['fas', 'mobile-screen']" />
-              SCANNER
+              <router-link :to="{ name: 'scanner' }" class="text-uppercase scanner"> scanner</router-link>
             </span>
           </div>
         </div>
@@ -75,7 +75,7 @@
           style="margin: 10px; height: 37px; border-radius: 10px"
         >
           <div class="card-body d-flex justify-content-between">
-            <span> TRANSACTION </span>
+            <span> User Upgrade </span>
             <span>
               <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </span>
@@ -89,5 +89,20 @@
 <script>
 export default {
   name: "HomeView",
+  mounted() {
+    this.$store.dispatch("fetchProfile");
+    console.log(this.$store.state.authUser)
+  },
 };
 </script>
+
+<style scoped>
+.qrcode{
+  text-decoration: none;
+  color: black;
+}
+.scanner{
+  text-decoration: none;
+  color: black;
+}
+</style>

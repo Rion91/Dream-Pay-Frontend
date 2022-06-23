@@ -13,7 +13,6 @@ export default {
       // eslint-disable-next-line no-undef
       API.put("pin", { pin: state.pin })
         .then(() => {
-          window.localStorage.setItem("pin", "success");
           router.push({
             name: "home",
           });
