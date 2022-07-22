@@ -1,12 +1,12 @@
 <template>
   <div>
     <div
-      class="d-flex justify-content-center align-items-center show-amount-box"
-      style="height: 100vh"
+        class="d-flex justify-content-center align-items-center show-amount-box"
+        style="height: 100vh"
     >
       <div
-        class="card"
-        style="padding-right: 60px; padding-left: 60px; border-radius: 30px"
+          class="card"
+          style="padding-right: 60px; padding-left: 60px; border-radius: 30px"
       >
         <h1 class="p-2">SCANNER</h1>
         <div class="card-body">
@@ -15,18 +15,18 @@
               <div class="row">
                 <div class="col-md-6">
                   <img
-                    alt="scanner"
-                    src="../assets/img/QRScanner.png"
-                    width="200px"
-                    height="200px"
+                      alt="scanner"
+                      src="../assets/img/QRScanner.png"
+                      width="200px"
+                      height="200px"
                   />
                 </div>
                 <div class="col-md-6 mt-3">
                   <input
-                    type="button"
-                    class="btn btn-success btn-xs"
-                    @click="openModel"
-                    value="SCANNER"
+                      type="button"
+                      class="btn btn-success btn-xs"
+                      @click="openModel"
+                      value="SCANNER"
                   />
                 </div>
               </div>
@@ -37,18 +37,18 @@
     </div>
 
     <div
-      class="d-flex justify-content-center align-items-center show-amount-box"
-      style="height: 100vh; visibility: hidden;"
+        class="d-flex justify-content-center align-items-center show-amount-box"
+        style="height: 100vh; visibility: hidden;"
     >
       <div
-        class="card"
-        style="padding-right: 60px; padding-left: 60px; border-radius: 30px"
+          class="card"
+          style="padding-right: 60px; padding-left: 60px; border-radius: 30px"
       >
         <div class="card-body">
           <div
-            :class="{ fullscreen: fullscreen }"
-            ref="wrapper"
-            @fullscreenchange="onFullscreenChange"
+              :class="{ fullscreen: fullscreen }"
+              ref="wrapper"
+              @fullscreenchange="onFullscreenChange"
           ></div>
         </div>
       </div>
@@ -68,12 +68,12 @@
                 </div>
                 <div class="modal-body">
                   <qrcode-stream
-                    @init="logErrors"
-                    @decode="onDecode"
-                    :track="paintOutline"
+                      @init="logErrors"
+                      @decode="onDecode"
+                      :track="paintOutline"
                   >
                   </qrcode-stream>
-                  <br />
+                  <br/>
                   <small class="text-muted">Align front of QR code within frame to scan</small>
                 </div>
               </div>
@@ -86,6 +86,8 @@
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "QRView",
   data() {
@@ -120,7 +122,7 @@ export default {
   methods: {
     onDecode(value) {
       this.value = value;
-      console.log(this.value);
+      router.push({name: 'transfer', params: {recipient: this.value}})
     },
     paintOutline(detectedCodes, ctx) {
       for (const detectedCode of detectedCodes) {
@@ -130,7 +132,7 @@ export default {
 
         ctx.beginPath();
         ctx.moveTo(firstPoint.x, firstPoint.y);
-        for (const { x, y } of otherPoints) {
+        for (const {x, y} of otherPoints) {
           ctx.lineTo(x, y);
         }
         ctx.lineTo(firstPoint.x, firstPoint.y);
@@ -208,9 +210,11 @@ export default {
   right: 0;
   margin: 1rem;
 }
+
 .fullscreen-button img {
   width: 2rem;
 }
+
 .modal-mask {
   position: fixed;
   z-index: 9998;

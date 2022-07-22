@@ -9,23 +9,30 @@ import API from "@/config/API";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    authUser: "",
-    test: "",
-  },
-  getters: {},
-  mutations: {
-    setProfile(state, data) {
-      if (state.authUser == "") {
-        state.authUser = data;
-      }
+    state: {
+        authUser: "",
+        test: "",
     },
-  },
-  actions: {
-    async fetchProfile({ commit }) {
-      let response = await API.get("profile");
-      commit("setProfile", response.data);
+    getters: {},
+    mutations: {
+        setProfile(state, data) {
+            if (state.authUser === "") {
+                state.authUser = data;
+            }
+        },
     },
-  },
-  modules: { Register, Pincode, Login, QR },
+    actions: {
+        fetchProfile({commit}) {
+            return new Promise((resolve, reject) => {
+                API.get("profile").then((response) => {
+                    commit("setProfile", response.data);
+                    resolve(response)
+                }).catch((error) => {
+                    reject(error);
+                })
+            })
+
+        },
+    },
+    modules: {Register, Pincode, Login, QR},
 });

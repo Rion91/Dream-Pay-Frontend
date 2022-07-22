@@ -8,10 +8,11 @@ import PincodeView from "@/views/PincodeView";
 import QRView from "@/views/QRView";
 import ScannerView from "@/views/ScannerView";
 import ErrorView from "@/views/ErrorView"
-import API from "@/config/API";
 import authMiddleware from "@/middlewares/authMiddleware";
 import checkIfPinWasSetMiddleware from "@/middlewares/checkIfPinWasSetMiddleware";
 import LevelUpView from "@/views/LevelUpView";
+import Transfer from "@/views/Transfer";
+import Transactions from "@/views/Transactions";
 
 Vue.use(VueRouter);
 
@@ -71,7 +72,18 @@ const routes = [
         name: "upgrade",
         component: LevelUpView,
         beforeEnter: checkIfPinWasSetMiddleware
-
+    },
+    {
+        path: "/transfer",
+        name: "transfer",
+        component: Transfer,
+        beforeEnter: checkIfPinWasSetMiddleware
+    },
+    {
+        path: "/transactions",
+        name: "transactions",
+        component: Transactions,
+        beforeEnter: checkIfPinWasSetMiddleware
     }
 ];
 
