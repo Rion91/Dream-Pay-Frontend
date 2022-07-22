@@ -6,10 +6,11 @@
           <div
             class="d-flex justify-content-between align-items-center footerEachDiv"
           >
-            <a href="#">
+            <router-link :to="{ name: 'home'}">
               <font-awesome-icon icon="fas fa-home" />
               <p>Home</p>
-            </a>
+            </router-link>
+
             <a href="#">
               <font-awesome-icon icon="fas fa-home" />
               <p>Home</p>

@@ -1,11 +1,28 @@
 <template>
   <div id="app">
-    <div v-if="currentRouteName !== 'login' && currentRouteName !== 'register'">
-      <Navbar />
+    <div
+        v-if="
+        currentRouteName !== 'login' &&
+        currentRouteName !== 'register' &&
+        currentRouteName !== 'qrcode' &&
+        currentRouteName !== 'scanner' &&
+        currentRouteName !== 'upgrade'
+      "
+    >
+      <Navbar/>
     </div>
-    <router-view />
-    <div v-if="currentRouteName !== 'login' && currentRouteName !== 'register'">
-      <Footer />
+    <router-view/>
+    <div
+        v-if="
+        currentRouteName !== 'login' &&
+        currentRouteName !== 'register' &&
+        currentRouteName !== 'qrcode' &&
+        currentRouteName !== 'scanner'&&
+        currentRouteName !== 'upgrade'
+
+      "
+    >
+      <Footer/>
     </div>
   </div>
 </template>
@@ -57,7 +74,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default {
-  components: { Footer, Navbar },
+  components: {Footer, Navbar},
   computed: {
     currentRouteName() {
       return this.$route.name;

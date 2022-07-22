@@ -5,7 +5,7 @@
       style="background-color: aquamarine"
     >
       <div class="container">
-        <a></a>
+        <span>icon here</span>
         <h1 class="text-uppercase fs-4 fw-bold text-center text-dark">
           DreamPay
         </h1>

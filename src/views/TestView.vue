@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <h2>Test 2</h2>
+  <div class="container" id="crudApp">
+    <br />
   </div>
 </template>
 
 <script>
 export default {
   name: "TestView.vue",
+  data() {
+    return {};
+  },
+  methods: {},
+  created: function () {},
 };
 </script>
 

@@ -22,7 +22,7 @@ export default {
       API.post("register", state.credentials)
         .then((response) => {
           window.localStorage.setItem("JwtToken", response.data.token);
-          router.push({ name: "pincode" });
+          router.push({ name: "login" });
         })
         .catch((e) => {
           const statusCode = e.status;

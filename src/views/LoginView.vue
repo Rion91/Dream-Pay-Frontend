@@ -13,23 +13,23 @@
               <h1>Login</h1>
               <form class="form-group">
                 <input
-                  v-model="credentials.email"
-                  type="email"
-                  class="form-control"
-                  placeholder="Email"
-                  required
+                    v-model="credentials.email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    required
                 />
                 <input
-                  v-model="credentials.password"
-                  type="password"
-                  class="form-control"
-                  placeholder="Password"
-                  required
+                    v-model="credentials.password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    required
                 />
                 <button
-                  type="submit"
-                  class="btn btn-primary btn-block"
-                  @click.prevent="login"
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                    @click.prevent="login"
                 >
                   Login
                 </button>
@@ -39,10 +39,8 @@
                 </p>
                 <p><a href="#">Forgot your password?</a></p>
               </form>
+              <span v-for="error in errors">{{error}}</span>
             </div>
-            <span v-for="error in errors" :key="error" style="display: block">{{
-              error
-            }}</span>
           </div>
         </div>
       </div>
@@ -50,7 +48,8 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import {mapActions} from "vuex";
+
 export default {
   data() {
     return {};
@@ -88,8 +87,7 @@ input {
 }
 
 .wallpaper-login {
-  background: url(https://images.pexels.com/photos/32237/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
-    no-repeat center center;
+  background: url(https://images.pexels.com/photos/32237/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center;
   background-size: cover;
   height: 100%;
   position: absolute;
@@ -107,8 +105,7 @@ input {
 }
 
 .wallpaper-register {
-  background: url(https://images.pexels.com/photos/533671/pexels-photo-533671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
-    no-repeat center center;
+  background: url(https://images.pexels.com/photos/533671/pexels-photo-533671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center;
   background-size: cover;
   height: 100%;
   position: absolute;
